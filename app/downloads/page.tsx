@@ -3,7 +3,7 @@ import BackgroundVideo from "@/app/components/backgroundVideo";
 
 export default function Home() {
     return (
-        <div className='px-10 flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center px-16 mx-auto '>
 
             <div className=''>
                 Downloads

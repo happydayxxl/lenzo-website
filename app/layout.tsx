@@ -25,7 +25,7 @@ export default function RootLayout({
         <body className={arvo.className}>
         <Providers>
             <Header/>
-            <div className='h-screen'>
+            <div className=''>
                 {children}
             </div>
             <Footer/>
