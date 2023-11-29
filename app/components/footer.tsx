@@ -1,31 +1,85 @@
 import {Divider} from "@nextui-org/divider";
+import {lenzoData} from "@/app/data/data";
+import Link from "next/link";
+import {HiMail, HiPhone} from "react-icons/hi";
 
 export default function Footer() {
 
-    return (<div className='flex z-40 h-auto items-center justify-center '>
-        <div className='flex px-6 gap-4 w-full flex-col relative flex-nowrap items-start justify-center '>
-            <Divider className="my-4"/>
-            <div className='flex flex-row text-3xl'>
-                Lenzo GmbH
-            </div>
-            <div className='flex flex-row justify-center text-2xl'>
-                Handel & Consulting
-            </div>
-            <div className='flex flex-col gap-0 justify-start'>
-                <div className='flex flex-row  items-center'>
-                    Gewerbepark 6
+    return (<div className='flex flex-col z-40 h-auto items-center justify-center '>
+        <Divider className="my-4"/>
+
+        <div className='flex flex-col max-w-[1024px] w-full'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 lg:px-6 px-3 gap-4 flex-col items-start my-8'>
+
+                <div className='flex-col flex'>
+                    <div className='flex flex-row text-3xl pb-2'>
+                        Lenzo GmbH
+                    </div>
+                    <div className='flex flex-row text-2xl  pb-5'>
+                        Handel & Consulting
+                    </div>
+                    <div className='flex flex-col gap-1 justify-start'>
+                        <div className='flex flex-row '>
+                            Gewerbepark 6
+                        </div>
+                        <div className='flex flex-row'>
+                            8111 Gratwein Straßengel
+                        </div>
+                        <div className='flex flex-row  '>
+                            Österreich
+                        </div>
+                    </div>
                 </div>
-                <div className='flex flex-row justify-center items-center'>
-                    8111 Gratwein Straßengel
+
+                <div className=''>
+                    <div className='text-xl lg:pb-10 pb-3 pt-5 lg:pt-0'>Kontakt</div>
+                    <div className='flex flex-col gap-3'>
+
+                        <div className='flex flex-row justify-start items-center'>
+                            <div><HiPhone className='mr-1'/></div>
+                            <div><Link className='hover:text-primary'
+                                       href={lenzoData.telHref}>{lenzoData.tel}</Link></div>
+                        </div>
+                        <div className='flex flex-row justify-start items-center'>
+                            <HiMail className='mr-1'/>
+                            <Link href={lenzoData.emailHref} className='hover:text-primary'>{lenzoData.email}</Link>
+                        </div>
+                    </div>
+
+
                 </div>
-                <div className='flex flex-row  items-center'>
-                    Österreich
+
+
+                <div className='flex flex-col justify-start'>
+                    <div className='text-xl lg:pb-10 pb-3 pt-5 lg:pt-0'>Legal</div>
+                    <div className='flex flex-col gap-3'>
+                        <div className='flex flex-row  items-center'>
+                            <Link className='hover:text-primary' href={'/imprint'}>Impressum</Link>
+                        </div>
+                        <div className='flex flex-row  items-center'>
+                            <Link className='hover:text-primary' href={'/privacystatement'}>Datenschutzerklärung</Link>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div className=''>
+
+                <div className='flex flex-row '>
+                    <iframe width="100%" height="300em" title="openstreetmap"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=15.33907860517502%2C47.11807540355157%2C15.342619121074678%2C47.11968521944969&amp;layer=mapnik&amp;marker=47.11888031758886%2C15.340848863124847"></iframe>
                 </div>
             </div>
-            <Divider className="my-4"/>
 
         </div>
-
+        <Divider className="my-4"/>
+        <div className='mb-10 px-3'>
+            Copyright © 2023 muc.team IT Solutions GmbH - Alle Rechte vorbehalten
+        </div>
 
     </div>)
 

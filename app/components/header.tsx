@@ -10,41 +10,81 @@ import {
     NavbarMenuToggle
 } from "@nextui-org/navbar";
 import Link from "next/link";
-import {useState} from "react";
-import {CiMenuBurger} from "react-icons/ci";
+import {useEffect, useState} from "react";
+import {LenzoLogo} from "@/app/components/lenzoLogo";
+
+import {usePathname} from 'next/navigation'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeProduct, setActiveProduct] = useState(false);
+    const [activeContact, setActiveContact] = useState(false);
+    const [activeDownload, setActiveDownload] = useState(false);
+
+    const pathname = usePathname()
+
+    useEffect(() => {
+
+        setActiveContact(false);
+        setActiveProduct(false);
+        setActiveDownload(false);
+
+
+        switch (pathname) {
+            case '/downloads': {
+                setActiveDownload(true);
+                break;
+            }
+            case '/contact': {
+                setActiveContact(true);
+                break;
+            }
+            case '/products': {
+                setActiveProduct(true);
+                break;
+            }
+        }
+
+
+    }, [pathname]);
 
 
     return (
         <Navbar
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
+            classNames={{
+                item: [
 
+                    "data-[active=true]:after:rounded-[2px]"
+                ]
+
+            }}
         >
             <NavbarBrand>
 
-                <p className="font-bold text-inherit">LENZO</p>
+
+                <Link href={'/'}><LenzoLogo/></Link>
+
+
             </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-4" justify="end">
+            <NavbarContent className="hidden sm:flex gap-6" justify="end">
                 <NavbarItem>
                     <Link color="foreground" href="#">
-
                     </Link>
                 </NavbarItem>
-                <NavbarItem isActive>
-                    <Link href="/products" aria-current="page">
+                <NavbarItem isActive={activeProduct}>
+                    <Link href="/products" aria-current="page" className='hover:text-primary'>
                         Produkte
                     </Link>
                 </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="#">
+                <NavbarItem isActive={activeContact}>
+                    <Link color="foreground" href="/contact" className='hover:text-primary'>
                         Kontakt
                     </Link>
                 </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="/downloads">
+                <NavbarItem isActive={activeDownload}>
+                    <Link color="foreground" href="/downloads" className='hover:text-primary'>
                         Downloads
                     </Link>
                 </NavbarItem>
@@ -52,20 +92,30 @@ export default function Header() {
             <NavbarContent className="sm:hidden" justify="end">
                 <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"}/>
             </NavbarContent>
-            <NavbarMenu>
-                <NavbarMenuItem>
+            <NavbarMenu
+                className='gap-6'>
+                <NavbarMenuItem isActive={activeProduct}>
                     <Link
                         className="w-full"
-                        href="#"
+                        href="/products"
                         onClick={() => setIsMenuOpen(false)}
                     >
                         Produkte
                     </Link>
                 </NavbarMenuItem>
-                <NavbarMenuItem>
+                <NavbarMenuItem isActive={activeContact}>
                     <Link
                         className="w-full"
-                        href="#"
+                        href="/contact"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Kontakt
+                    </Link>
+                </NavbarMenuItem>
+                <NavbarMenuItem isActive={activeDownload}>
+                    <Link
+                        className="w-full"
+                        href="/downloads"
                         onClick={() => setIsMenuOpen(false)}
                     >
                         Downloads
