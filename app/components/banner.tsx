@@ -1,6 +1,6 @@
 'use client'
 
-
+import Image from 'next/image'
 import {Button} from "@nextui-org/react";
 import {useRouter} from "next/navigation";
 
@@ -37,9 +37,9 @@ export default function Banner() {
 
                                     </div>
 
-                                    <div className="mb-12 lg:mb-0">
-                                        <img src="/images/banner_picture.jpg"
-                                             className="w-full rounded-lg shadow-lg dark:shadow-black/20" alt=""/>
+                                    <div className="mb-12 lg:mb-0 ">
+                                        <Image src="/images/banner_picture.jpg" width={1280} height={960}
+                                             className="w-full  rounded-lg shadow-lg dark:shadow-black/20" alt=""/>
                                     </div>
                                 </div>
                             </div>

@@ -42,7 +42,7 @@ export default function Footer() {
                         </div>
                         <div className='flex flex-row justify-start items-center'>
                             <HiMail className='mr-1'/>
-                            <a href={lenzoData.emailHref} className='hover:text-primary'>{lenzoData.email}</a>
+                            <a href='mailto:office@lenzo.at' className='hover:text-primary'>{lenzoData.email}</a>
                         </div>
                     </div>
 
