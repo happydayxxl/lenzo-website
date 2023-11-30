@@ -35,7 +35,7 @@ export default function Imprint() {
                         Telefon: <Link className='hover:text-primary' href={lenzoData.telHref}>{lenzoData.tel}</Link>
                     </div>
                     <div>
-                        E-Mail: <Link className='hover:text-primary' href={lenzoData.emailHref}>{lenzoData.email}</Link>
+                        E-Mail: <a className='hover:text-primary' href={lenzoData.emailHref}>{lenzoData.email}</a>
                     </div>
                     <div>
                         UID-Nummer: ATU 67135717
