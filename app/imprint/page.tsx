@@ -3,6 +3,14 @@ import BackgroundVideo from "@/app/components/backgroundVideo";
 import {lenzoData} from "@/app/data/data";
 import Link from "next/link";
 
+
+import type {Metadata} from 'next'
+
+export const metadata: Metadata = {
+    title: 'Lenzo GmbH - Impressum',
+    description: 'Impressum',
+}
+
 export default function Imprint() {
     return (
         <div className='flex flex-col justify-center items-center px-4 lg:px-16'>

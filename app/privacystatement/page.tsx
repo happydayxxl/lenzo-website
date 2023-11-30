@@ -1,6 +1,13 @@
 import React from "react";
 import {lenzoData} from "@/app/data/data";
 import Link from "next/link";
+import {Metadata} from "next";
+
+
+export const metadata: Metadata = {
+    title: 'Lenzo GmbH - Datenschutzerklärung',
+    description: 'Datenschutzerklärung',
+}
 
 export default function Privacystatement() {
     return (

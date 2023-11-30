@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
         <Divider className="my-4"/>
         <div className='mb-10 px-3 text-center justify-center items-center'>
-            Copyright © 2023 muc.team IT Solutions GmbH - Alle Rechte vorbehalten
+            Copyright © 2023 <Link className='hover:text-primary' href={'https://muc.team'}>muc.team IT Solutions GmbH</Link> - Alle Rechte vorbehalten
         </div>
 
     </div>)
