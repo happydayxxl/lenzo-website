@@ -3,8 +3,9 @@ export default function BackgroundVideo() {
 
     return (
         <div className='flex justify-center w-full items-center h-screen'>
-            <video autoPlay={true} muted loop className='absolute inset-0 object-cover w-full h-screen'>
+            <video autoPlay={true} muted={true} loop={true} playsInline={true} className='absolute inset-0 object-cover w-full h-screen'>
                 <source src="/video/background_effect.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
             </video>
 
             <div className='max-w-[1024px] z-10 justify-center items-center flex flex-col gap-10 mb-20'>
