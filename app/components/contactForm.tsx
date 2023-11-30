@@ -1,7 +1,7 @@
 'use client'
 
 import {Button} from "@nextui-org/react";
-import {Fragment, useState} from "react";
+import {useState} from "react";
 import {MdOutlineMarkEmailRead} from "react-icons/md";
 import {BsFillPersonFill} from "react-icons/bs";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -76,12 +76,12 @@ export default function ContactForm() {
     return (<div className='my-10'>
 
 
-        <div className='block sm:flex sm:flex-row sm:justify-center'>
-            <div className='sm:basis-3/4 xl:basis-3/4'>
+        <div className='block sm:flex sm:flex-row sm:justify-center w-full'>
+            <div className=''>
                 {formSuccess ?
                     <div
                         className='flex flex-col justify-center py-10 text-3xl text-center text-black'>{formSuccessMessage}
-                        <div className='flex flex-col justify-center items-center text-5xl py-4 text-primary'>
+                        <div className='flex flex-col justify-center items-center text-5xl py-4'>
                             <MdOutlineMarkEmailRead/></div>
                     </div> : <form method="POST"
                                    onSubmit={handleSubmit} acceptCharset='UTF-8'>
@@ -96,7 +96,7 @@ export default function ContactForm() {
                                     Name</label>
                                 <div className="relative">
                                     <div
-                                        className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-primary">
+                                        className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none ">
                                         <BsFillPersonFill/>
                                     </div>
                                     <input type="text" id="human-icon" name="name" onChange={handleInput}
@@ -112,7 +112,7 @@ export default function ContactForm() {
                                 E-Mail Adresse<span className='text-red-600'>*</span></label>
                             <div className="relative">
                                 <div
-                                    className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-primary">
+                                    className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                                     {lenzoData.emailIcon}
                                 </div>
                                 <input type="email" id="email-address-icon" name="email"
@@ -155,7 +155,7 @@ export default function ContactForm() {
                         >
 
                             <Button
-                                className="px-4 py-2 mt-3 text-center  text-white bg-primary rounded-md buttonShadowEffect hover:buttonHoverEffect"
+                                className="text-xl px-4 py-2 mt-3 text-center  text-white bg-primary rounded-md"
                                 type="submit">Sende Nachricht
                             </Button>
                         </div>

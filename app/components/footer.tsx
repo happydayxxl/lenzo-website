@@ -13,7 +13,7 @@ export default function Footer() {
 
                 <div className='flex-col flex'>
                     <div className='flex flex-row text-3xl pb-2'>
-                        Lenzo GmbH
+                        Len<span className='text-primary'>z</span>o GmbH
                     </div>
                     <div className='flex flex-row text-2xl  pb-5'>
                         Handel & Consulting
@@ -77,7 +77,7 @@ export default function Footer() {
 
         </div>
         <Divider className="my-4"/>
-        <div className='mb-10 px-3'>
+        <div className='mb-10 px-3 text-center justify-center items-center'>
             Copyright © 2023 muc.team IT Solutions GmbH - Alle Rechte vorbehalten
         </div>
 
