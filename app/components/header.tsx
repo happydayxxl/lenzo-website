@@ -51,8 +51,10 @@ export default function Header() {
 
     return (
         <Navbar
+            className=''
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
+            isBordered={true}
             classNames={{
                 item: [
 

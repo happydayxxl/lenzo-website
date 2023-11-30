@@ -23,10 +23,10 @@ export default function Banner() {
                             <div className="px-6 py-12 md:px-12">
                                 <div className="grid items-center lg:grid-cols-2 lg:gap-x-12">
                                     <div className="mb-12 lg:mb-0">
-                                        <h2 className="my-12 mb-16 text-3xl md:text-4xl xl:text-5xl font-bold leading-tight tracking-tight">
+                                        <div className="my-12 mb-16 text-3xl md:text-4xl xl:text-5xl font-bold leading-loose">
                                             Für jeden Fleck die richtige Lösung - Len<span
                                             className='text-primary'>z</span>o macht&apos;s möglich <br/>
-                                        </h2>
+                                        </div>
 
 
                                         <Button
