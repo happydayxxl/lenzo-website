@@ -2,7 +2,7 @@ export default function AboutUs() {
 
     return (
         <div className='flex flex-col justify-center items-center gap-6 my-24'>
-            <div className='text-5xl my-6'>Über uns</div>
+            <div className='text-5xl font-bold my-6'>Über uns</div>
 
             <div className='flex flex-col justify-start items-start md:justify-center md:items-center gap-6 px-2 md:px-0'>
                 <div className='font-bold'>Wir sind ein junges Unternehmen</div>

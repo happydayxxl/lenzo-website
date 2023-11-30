@@ -1,9 +1,12 @@
+import {HiMail} from "react-icons/hi";
+
 export const lenzoData = {
 
     tel: '+43 699 1500 99 01',
     telHref: 'tel:4369915009901',
     email: 'office@lenzo.at',
     emailHref: 'mailto:office@lenzo.at',
+    emailIcon: <HiMail />,
     links: [
         {
             label: "Impressum",
