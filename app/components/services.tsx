@@ -19,8 +19,8 @@ export default function Services() {
 
                     <div className='lg:text-3xl text-2xl'>Handel und Beratung von</div>
                     <div className='text-xl'>Hygiene & Reinigungsprodukten</div>
-                    <Image height={225} width={300} src={'/images/services.jpg'} alt={'lenzo_services'}
-                           className='rounded-lg shadow-lg dark:shadow-black/20'/>
+                    <Image height={225} width={300} src={'/images/reinigungswerkzeuge.jpg'} alt={'lenzo_services'}
+                           className='w-80 rounded-lg shadow-lg dark:shadow-black/20'/>
                     <div className='text-xl'>für die professionelle Objekt Innen- und Außenreinigung</div>
                     <div className='text-2xl text-center'>Wir teilen unsere vielfältige Wissenskompetenz gerne mit
                         Ihnen!
