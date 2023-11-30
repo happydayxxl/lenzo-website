@@ -94,7 +94,7 @@ export default function Header() {
             </NavbarContent>
             <NavbarMenu
                 className='gap-6'>
-                <NavbarMenuItem isActive={activeProduct}>
+                <NavbarMenuItem isActive={activeProduct} className='w-full'>
                     <Link
                         className="w-full"
                         href="/products"
@@ -103,7 +103,7 @@ export default function Header() {
                         Produkte
                     </Link>
                 </NavbarMenuItem>
-                <NavbarMenuItem isActive={activeContact}>
+                <NavbarMenuItem isActive={activeContact} className='w-full'>
                     <Link
                         className="w-full"
                         href="/contact"
@@ -112,7 +112,7 @@ export default function Header() {
                         Kontakt
                     </Link>
                 </NavbarMenuItem>
-                <NavbarMenuItem isActive={activeDownload}>
+                <NavbarMenuItem isActive={activeDownload} className='w-full'>
                     <Link
                         className="w-full"
                         href="/downloads"
