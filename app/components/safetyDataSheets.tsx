@@ -21,7 +21,7 @@ export function SafetyDataSheets() {
                     >
                         <CardBody onClick={() => handleCardClick(sheet.link)}>
                             <div className='flex flex-row justify-start items-center'>
-                                <div className='text-3xl pr-4'><PiFilePdfLight/></div>
+                                <div className='text-primary text-3xl pr-4'><PiFilePdfLight/></div>
                                 <div>{sheet.name}</div>
                             </div>
                         </CardBody>
