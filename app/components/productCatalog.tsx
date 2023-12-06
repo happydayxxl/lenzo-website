@@ -10,6 +10,7 @@ import HTMLFlipBook from 'react-pageflip';
 
 import Image from 'next/image'
 import {GrCatalog, GrLinkNext, GrLinkPrevious} from "react-icons/gr";
+import {IoMdClose} from "react-icons/io";
 
 export default function ProductCatalog() {
 
@@ -52,38 +53,38 @@ export default function ProductCatalog() {
 
     }
 
-    
+
     return (<>
             <div className='text-xl md:text-4xl my-6'>Produktkatalog</div>
 
             <div className='grid xl:grid-cols-2 gap-4 grid-cols-1 lg:grid-cols-2'>
 
-            <Card
-                isPressable={true}
-                isHoverable={true}
-                className=''
-            >
-                <CardBody onClick={() => handleCardClick('/data/Lenzo_Produktkatalog.pdf')}>
-                    <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
-                        <div className='text-primary text-3xl pr-4'><PiFilePdfLight/></div>
-                        <div className='pt-4 '>Produktkatalog</div>
-                    </div>
-                </CardBody>
-            </Card>
+                <Card
+                    isPressable={true}
+                    isHoverable={true}
+                    className=''
+                >
+                    <CardBody onClick={() => handleCardClick('/data/Lenzo_Produktkatalog.pdf')}>
+                        <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
+                            <div className='text-primary text-3xl pr-4'><PiFilePdfLight/></div>
+                            <div className='pt-4 '>Produktkatalog</div>
+                        </div>
+                    </CardBody>
+                </Card>
 
 
-            <Card
-                isPressable={true}
-                isHoverable={true}
-                className='h-auto'
-            >
-                <CardBody onClick={() => onOpen()}>
-                    <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
-                        <div className='text-primary text-3xl pr-4'><GrCatalog /></div>
-                        <div className='pt-4 '>Interaktiver Produktkatalog</div>
-                    </div>
-                </CardBody>
-            </Card>
+                <Card
+                    isPressable={true}
+                    isHoverable={true}
+                    className='h-auto'
+                >
+                    <CardBody onClick={() => onOpen()}>
+                        <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
+                            <div className='text-primary text-3xl pr-4'><GrCatalog/></div>
+                            <div className='pt-4 '>Interaktiver Produktkatalog</div>
+                        </div>
+                    </CardBody>
+                </Card>
 
             </div>
             <Modal
@@ -92,6 +93,7 @@ export default function ProductCatalog() {
                 size={'full'}
                 scrollBehavior={'normal'}
                 onOpenChange={onOpenChange}
+
                 classNames={{
                     backdrop: "bg-gradient-to-t from-zinc-900 to-zinc-900/10 backdrop-opacity-20"
                 }}
@@ -100,19 +102,20 @@ export default function ProductCatalog() {
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col justify-center items-center gap-1 text-3xl">Lenzo
-                                Produktkatalog</ModalHeader>
+                            <ModalHeader className="flex flex-col justify-center items-center gap-1 text-3xl">
+                                <div>Len<span className='text-primary'>z</span>o Produktkatalog</div>
+                            </ModalHeader>
                             <ModalBody
                                 className=''>
                                 <div className=' hidden xl:flex flex-col gap-3'>
                                     <div className='flex flex-row justify-center items-center gap-2'>
                                         <Button className='text-xl py-1 text-center rounded-md bg-primary text-white'
-                                                onClick={() => catalog.current.pageFlip().flipPrev()}><GrLinkPrevious /></Button>
+                                                onClick={() => catalog.current.pageFlip().flipPrev()}><GrLinkPrevious/></Button>
                                         [ Seite <span>{currentPage}</span> von
                                         <span>{totalPages}</span>]
 
                                         <Button className='text-xl py-1 text-center rounded-md bg-primary text-white'
-                                                onClick={() => catalog.current.pageFlip().flipNext()}><GrLinkNext /></Button>
+                                                onClick={() => catalog.current.pageFlip().flipNext()}><GrLinkNext/></Button>
                                     </div>
 
 
@@ -122,11 +125,14 @@ export default function ProductCatalog() {
                                             onFlip={onFlip}
                                             size={'fixed'}
                                             maxShadowOpacity={0.5} startPage={0} minWidth={300} maxWidth={600}
-                                            width={600} height={700} autoSize={true} className={''} flippingTime={1000} clickEventForward={true}
+                                            width={600} height={700} autoSize={true} className={''} flippingTime={1000}
+                                            clickEventForward={true}
 
 
-                                         disableFlipByClick={false} drawShadow={true}  maxHeight={700}  minHeight={350} mobileScrollSupport={true}
-                                            showCover={true} showPageCorners={true} startZIndex={0}  style={{color: 'black'}} swipeDistance={50}
+                                            disableFlipByClick={false} drawShadow={true} maxHeight={700} minHeight={350}
+                                            mobileScrollSupport={true}
+                                            showCover={true} showPageCorners={true} startZIndex={0}
+                                            style={{color: 'black'}} swipeDistance={50}
                                             useMouseEvents usePortrait={true}>
 
                                             {Array.from({length: 46}, (_, index: number) => {
@@ -152,13 +158,16 @@ export default function ProductCatalog() {
                             <ModalFooter className='flex flex-row gap-3'>
                                 <div className='hidden xl:flex gap-3'>
                                     <div className='flex flex-col'><Button
-                                        onClick={() => handleChapterJump('chemie')} className=' py-3 text-center rounded-md bg-primary text-white'>Chemie</Button>
+                                        onClick={() => handleChapterJump('chemie')}
+                                        className=' py-3 text-center rounded-md bg-primary text-white'>Chemie</Button>
                                     </div>
                                     <div className='flex flex-col'><Button
-                                        onClick={() => handleChapterJump('geräte')} className='py-3 text-center rounded-md bg-primary text-white'>Geräte</Button>
+                                        onClick={() => handleChapterJump('geräte')}
+                                        className='py-3 text-center rounded-md bg-primary text-white'>Geräte</Button>
                                     </div>
                                     <div className='flex flex-col'><Button
-                                        onClick={() => handleChapterJump('maschinen')} className='py-3 text-center rounded-md bg-primary text-white'>Maschinen</Button>
+                                        onClick={() => handleChapterJump('maschinen')}
+                                        className='py-3 text-center rounded-md bg-primary text-white'>Maschinen</Button>
                                     </div>
                                 </div>
                                 <div className='flex flex-col'>
