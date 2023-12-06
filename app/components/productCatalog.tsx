@@ -2,22 +2,22 @@
 
 import {Card, CardBody} from "@nextui-org/card";
 import {PiFilePdfLight} from "react-icons/pi";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import {handleCardClick} from "@/app/functions/functions";
 import {Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure} from "@nextui-org/modal";
 import {Button} from "@nextui-org/react";
 import HTMLFlipBook from 'react-pageflip';
 
 import Image from 'next/image'
-import {GrCatalog, GrCatalogOption, GrLinkNext, GrLinkPrevious} from "react-icons/gr";
+import {GrCatalog, GrLinkNext, GrLinkPrevious} from "react-icons/gr";
 
 export default function ProductCatalog() {
 
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
-    const [totalPages, setTotalPages] = useState(41);
+    const [totalPages] = useState(41);
     const [currentPage, setCurrentPage] = useState(1);
-    const catalog = useRef();
+    const catalog: any = useRef();
 
 
     function onFlip(e: any) {
@@ -37,6 +37,7 @@ export default function ProductCatalog() {
 
     function handleChapterJump(chapter: string) {
 
+        if (catalog.current)
         switch (chapter) {
             case 'chemie':
                 catalog.current.pageFlip().flip(2);
@@ -52,6 +53,7 @@ export default function ProductCatalog() {
 
     }
 
+    // @ts-ignore
     return (<>
             <div className='text-xl md:text-4xl my-6'>Produktkatalog</div>
 
@@ -75,7 +77,7 @@ export default function ProductCatalog() {
                 isHoverable={true}
                 className='w-80 h-auto'
             >
-                <CardBody onClick={() => onOpen(true)}>
+                <CardBody onClick={() => onOpen()}>
                     <div className='flex flex-row justify-start items-center'>
                         <div className='text-primary text-3xl pr-4'><GrCatalog /></div>
                         <div>Interaktiver Produktkatalog</div>
@@ -118,7 +120,7 @@ export default function ProductCatalog() {
                                             onFlip={onFlip}
                                             size={'fixed'}
                                             maxShadowOpacity={0.5}
-                                            width={550} height={650} autoSize={false} className={''}>
+                                            width={600} height={700} autoSize={false} className={''}>
 
                                             {Array.from({length: 46}, (_, index: number) => {
                                                 return (
