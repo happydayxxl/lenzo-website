@@ -37,7 +37,7 @@ export default function ProductCatalog() {
 
     function handleChapterJump(chapter: string) {
 
-        if (catalog.current)
+
         switch (chapter) {
             case 'chemie':
                 catalog.current.pageFlip().flip(2);
@@ -50,23 +50,23 @@ export default function ProductCatalog() {
                 break;
         }
 
-
     }
 
-    // @ts-ignore
+    
     return (<>
             <div className='text-xl md:text-4xl my-6'>Produktkatalog</div>
 
-            <div className='flex gap-3 flex-col'>
+            <div className='grid xl:grid-cols-2 gap-4 grid-cols-1 lg:grid-cols-2'>
+
             <Card
                 isPressable={true}
                 isHoverable={true}
-                className='w-80'
+                className=''
             >
                 <CardBody onClick={() => handleCardClick('/data/Lenzo_Produktkatalog.pdf')}>
-                    <div className='flex flex-row justify-start items-center'>
+                    <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
                         <div className='text-primary text-3xl pr-4'><PiFilePdfLight/></div>
-                        <div>Produktkatalog</div>
+                        <div className='pt-4 '>Produktkatalog</div>
                     </div>
                 </CardBody>
             </Card>
@@ -75,12 +75,12 @@ export default function ProductCatalog() {
             <Card
                 isPressable={true}
                 isHoverable={true}
-                className='w-80 h-auto'
+                className='h-auto'
             >
                 <CardBody onClick={() => onOpen()}>
-                    <div className='flex flex-row justify-start items-center'>
+                    <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
                         <div className='text-primary text-3xl pr-4'><GrCatalog /></div>
-                        <div>Interaktiver Produktkatalog</div>
+                        <div className='pt-4 '>Interaktiver Produktkatalog</div>
                     </div>
                 </CardBody>
             </Card>
@@ -106,21 +106,28 @@ export default function ProductCatalog() {
                                 className=''>
                                 <div className=' hidden xl:flex flex-col gap-3'>
                                     <div className='flex flex-row justify-center items-center gap-2'>
-                                        <Button className='text-xl py-1 text-center rounded-md bg-primary text-white' onClick={() => catalog.current.pageFlip().flipPrev()}><GrLinkPrevious /></Button>
+                                        <Button className='text-xl py-1 text-center rounded-md bg-primary text-white'
+                                                onClick={() => catalog.current.pageFlip().flipPrev()}><GrLinkPrevious /></Button>
                                         [ Seite <span>{currentPage}</span> von
                                         <span>{totalPages}</span>]
 
-                                        <Button className='text-xl py-1 text-center rounded-md bg-primary text-white' onClick={() => catalog.current.pageFlip().flipNext()}><GrLinkNext /></Button>
+                                        <Button className='text-xl py-1 text-center rounded-md bg-primary text-white'
+                                                onClick={() => catalog.current.pageFlip().flipNext()}><GrLinkNext /></Button>
                                     </div>
 
 
-                                    <div className='overflow-hidden'>
+                                    <div className='overflow-hidden items-center justify-center flex'>
                                         <HTMLFlipBook
                                             ref={catalog}
                                             onFlip={onFlip}
                                             size={'fixed'}
-                                            maxShadowOpacity={0.5}
-                                            width={600} height={700} autoSize={false} className={''}>
+                                            maxShadowOpacity={0.5} startPage={0} minWidth={300} maxWidth={600}
+                                            width={600} height={700} autoSize={true} className={''} flippingTime={1000} clickEventForward={true}
+
+
+                                         disableFlipByClick={false} drawShadow={true}  maxHeight={700}  minHeight={350} mobileScrollSupport={true}
+                                            showCover={true} showPageCorners={true} startZIndex={0}  style={{color: 'black'}} swipeDistance={50}
+                                            useMouseEvents usePortrait={true}>
 
                                             {Array.from({length: 46}, (_, index: number) => {
                                                 return (
