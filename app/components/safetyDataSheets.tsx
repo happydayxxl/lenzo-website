@@ -24,9 +24,9 @@ export function SafetyDataSheets() {
                                   isHoverable={true}
                             >
                                 <CardBody onClick={() => handleCardClick(sheet.link)}>
-                                    <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
-                                        <div className='text-primary text-3xl pr-4'><PiFilePdfLight/></div>
-                                        <div className='pt-4 text-sm '>{sheet.name}</div>
+                                    <div className='xl:h-32 h-20 justify-between items-center lg:flex lg:flex-col lg:text-center '>
+                                        <div className='text-primary text-3xl py-2 '><PiFilePdfLight/></div>
+                                        <div className='text-sm mb-auto '>{sheet.name}</div>
                                     </div>
                                 </CardBody>
 
