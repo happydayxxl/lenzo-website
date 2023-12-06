@@ -10,7 +10,6 @@ import HTMLFlipBook from 'react-pageflip';
 
 import Image from 'next/image'
 import {GrCatalog, GrLinkNext, GrLinkPrevious} from "react-icons/gr";
-import {IoMdClose} from "react-icons/io";
 
 export default function ProductCatalog() {
 
@@ -22,16 +21,22 @@ export default function ProductCatalog() {
 
 
     function onFlip(e: any) {
+
+        console.log(e.data)
         let page = 0;
         if (e.data <= 2)
             page = 1
-        else if (e.data > 14 && e.data < 35) {
+        else if (e.data > 14 && e.data < 34) {
             page = e.data - 2;
-        } else if (e.data > 35) {
+        } else if (e.data > 32 && e.data < 44) {
             page = e.data - 3;
+        }else if (e.data > 44) {
+            page = e.data - 4;
         } else {
             page = e.data - 1;
         }
+
+
         setCurrentPage(page);
     }
 
@@ -53,6 +58,10 @@ export default function ProductCatalog() {
 
     }
 
+
+    function handleModalOnClose() {
+        setCurrentPage(1);
+    }
 
     return (<>
             <div className='text-xl md:text-4xl my-6'>Produktkatalog</div>
@@ -89,6 +98,7 @@ export default function ProductCatalog() {
             </div>
             <Modal
                 backdrop="opaque"
+                onClose={() => handleModalOnClose()}
                 isOpen={isOpen}
                 size={'full'}
                 scrollBehavior={'normal'}
