@@ -76,7 +76,7 @@ export default function ProductCatalog() {
                     <CardBody onClick={() => handleCardClick('/data/Lenzo_Produktkatalog.pdf')}>
                         <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
                             <div className='text-primary text-3xl pr-4'><PiFilePdfLight/></div>
-                            <div className='pt-4 '>Produktkatalog</div>
+                            <div className='pt-4 text-xl '>Produktkatalog</div>
                         </div>
                     </CardBody>
                 </Card>
@@ -90,7 +90,7 @@ export default function ProductCatalog() {
                     <CardBody onClick={() => onOpen()}>
                         <div className='xl:h-32 h-20 justify-center items-center lg:flex lg:flex-col lg:text-center'>
                             <div className='text-primary text-3xl pr-4'><GrCatalog/></div>
-                            <div className='pt-4 '>Interaktiver Produktkatalog</div>
+                            <div className='pt-4 text-xl'>Interaktiver Produktkatalog</div>
                         </div>
                     </CardBody>
                 </Card>
@@ -119,12 +119,12 @@ export default function ProductCatalog() {
                                 className=''>
                                 <div className=' hidden xl:flex flex-col gap-3'>
                                     <div className='flex flex-row justify-center items-center gap-2'>
-                                        <Button className='text-xl py-1 text-center rounded-md bg-primary text-white'
+                                        <Button size={'sm'} className='text-xl py-1 text-center rounded-md bg-primary text-white'
                                                 onClick={() => catalog.current.pageFlip().flipPrev()}><GrLinkPrevious/></Button>
                                         [ Seite <span>{currentPage}</span> von
                                         <span>{totalPages}</span>]
 
-                                        <Button className='text-xl py-1 text-center rounded-md bg-primary text-white'
+                                        <Button  size={'sm'} className='text-xl py-1 text-center rounded-md bg-primary text-white'
                                                 onClick={() => catalog.current.pageFlip().flipNext()}><GrLinkNext/></Button>
                                     </div>
 
