@@ -6,7 +6,11 @@ import {HiMail, HiPhone} from "react-icons/hi";
 export default function Footer() {
 
     return (<div className='flex flex-col z-40 h-auto items-center justify-center '>
-        <Divider className="my-4"/>
+        <div className="border dark:border-white light:border-black w-full my-4"/>
+
+
+
+
 
         <div className='flex flex-col max-w-[1024px] w-full'>
             <div className='grid grid-cols-1 lg:grid-cols-3 lg:px-6 px-3 gap-4 flex-col items-start my-8'>
@@ -76,7 +80,7 @@ export default function Footer() {
             </div>
 
         </div>
-        <Divider className="my-4"/>
+        <div className="border dark:border-white light:border-black w-full my-4"/>
         <div className='mb-10 px-3 text-center justify-center items-center'>
             Copyright © 2023 <Link className='hover:text-primary' href={'https://muc.team'}>muc.team IT Solutions GmbH</Link> - Alle Rechte vorbehalten
         </div>

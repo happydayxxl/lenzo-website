@@ -13,7 +13,8 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 import {LenzoLogo} from "@/app/components/lenzoLogo";
 
-import {usePathname} from 'next/navigation'
+
+import {usePathname, useRouter} from 'next/navigation'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +23,8 @@ export default function Header() {
     const [activeDownload, setActiveDownload] = useState(false);
 
     const pathname = usePathname()
+
+    const router = useRouter();
 
     useEffect(() => {
 
@@ -32,7 +35,9 @@ export default function Header() {
 
         switch (pathname) {
             case '/downloads': {
+                router.push('/downloads')
                 setActiveDownload(true);
+
                 break;
             }
             case '/contact': {
@@ -41,6 +46,7 @@ export default function Header() {
             }
             case '/products': {
                 setActiveProduct(true);
+                router.push('/products')
                 break;
             }
         }
@@ -49,9 +55,40 @@ export default function Header() {
     }, [pathname]);
 
 
+    function setActiveSelectionAndNavigate(path: string) {
+
+        setActiveContact(false);
+        setActiveProduct(false);
+        setActiveDownload(false);
+
+        switch (path) {
+            case '/downloads': {
+                setIsMenuOpen(false);
+                setActiveDownload(true);
+                router.push(path)
+                break;
+            }
+            case '/contact': {
+                setIsMenuOpen(false);
+                setActiveContact(true);
+                router.push(path)
+                break;
+            }
+            case '/products': {
+                setIsMenuOpen(false);
+                setActiveProduct(true);
+                router.push(path)
+                break;
+            }
+        }
+
+
+    }
+
+
     return (
         <Navbar
-            className=''
+            className='text-black'
             isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
             isBordered={true}
@@ -70,7 +107,7 @@ export default function Header() {
 
 
             </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-6" justify="end">
+            <NavbarContent className="hidden sm:flex gap-6 text-black" justify="end">
                 <NavbarItem>
                     <Link color="foreground" href="#">
                     </Link>
@@ -95,33 +132,24 @@ export default function Header() {
                 <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"}/>
             </NavbarContent>
             <NavbarMenu
-                className='gap-6'>
-                <NavbarMenuItem isActive={activeProduct} className='w-full'>
-                    <Link
-                        className="w-full"
-                        href="/products"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Produkte
-                    </Link>
+                className='gap-6 pt-7 text-black '>
+                <NavbarMenuItem isActive={activeProduct} className='w-full cursor-pointer'
+                                onClick={() => setActiveSelectionAndNavigate('/products')}>
+
+                    Produkte
+
                 </NavbarMenuItem>
-                <NavbarMenuItem isActive={activeContact} className='w-full'>
-                    <Link
-                        className="w-full"
-                        href="/contact"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Kontakt
-                    </Link>
+                <NavbarMenuItem isActive={activeContact} className='w-full cursor-pointer'
+                                onClick={() => setActiveSelectionAndNavigate('/contact')}>
+
+                    Kontakt
+
                 </NavbarMenuItem>
-                <NavbarMenuItem isActive={activeDownload} className='w-full'>
-                    <Link
-                        className="w-full"
-                        href="/downloads"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Downloads
-                    </Link>
+                <NavbarMenuItem isActive={activeDownload} className='w-full cursor-pointer'
+                                onClick={() => setActiveSelectionAndNavigate('/downloads')}>
+
+                    Downloads
+
                 </NavbarMenuItem>
 
             </NavbarMenu>
