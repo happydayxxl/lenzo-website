@@ -55,7 +55,7 @@ export default function Footer() {
 
 
                 <div className='flex flex-col justify-start'>
-                    <div className='text-xl lg:pb-10 pb-3 pt-5 lg:pt-0'>Legal</div>
+                    <div className='text-xl lg:pb-10 pb-3 pt-5 lg:pt-0'>Rechtliches</div>
                     <div className='flex flex-col gap-3'>
                         <div className='flex flex-row  items-center'>
                             <Link className='hover:text-primary' href={'/imprint'}>Impressum</Link>
