@@ -39,6 +39,7 @@ export default function Footer() {
                     <div className='text-xl lg:pb-10 pb-3 pt-5 lg:pt-0'>Kontakt</div>
                     <div className='flex flex-col gap-3'>
 
+
                         <div className='flex flex-row justify-start items-center'>
                             <div><HiPhone className='mr-1'/></div>
                             <div><Link className='hover:text-primary'
@@ -47,6 +48,13 @@ export default function Footer() {
                         <div className='flex flex-row justify-start items-center'>
                             <HiMail className='mr-1'/>
                             <a href='mailto:office@lenzo.at' className='hover:text-primary'>{lenzoData.email}</a>
+                        </div>
+                        <div className='flex flex-col justify-start items-start mt-3'>
+                            <div className='font-bold'>Öffnungszeiten</div>
+                            <div>Montag - Donnerstag:</div>
+                            <div>08:00 bis 16:00</div>
+                            <div>Freitag:</div>
+                            <div>08:00 bis 12:00</div>
                         </div>
                     </div>
 
